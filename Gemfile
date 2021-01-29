@@ -1,18 +1,18 @@
 source 'http://rubygems.org'
 
-ruby '2.6.5'
+ruby '2.7.2'
 
 gem 'grape'
 gem 'grape-entity'
-gem 'grape-swagger'
-gem 'grape-swagger-entity'
-gem 'json'
+gem 'oj'
 gem 'mime-types'
-gem 'newrelic_rpm'
-gem 'nokogiri'
 gem 'rack-cors'
+gem 'puma', '~> 5.2'
+gem 'activerecord', '~> 5.2'
+gem 'pg', '~> 1.2', '>= 1.2.3'
 
 group :development do
+  gem 'pry'
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rack'
@@ -21,8 +21,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
   gem 'rack-test'
   gem 'rspec'
-  gem 'selenium-webdriver'
 end

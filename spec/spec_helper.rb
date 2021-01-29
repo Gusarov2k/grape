@@ -14,10 +14,3 @@ RSpec.configure do |config|
   config.expect_with :rspec
   config.raise_errors_for_deprecations!
 end
-
-require 'capybara/rspec'
-Capybara.configure do |config|
-  config.app = Acme::App.new
-  config.server_port = 9293
-  config.server = :webrick
-end

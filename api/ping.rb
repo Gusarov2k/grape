@@ -1,5 +1,6 @@
 module Acme
-  class Ping < Grape::API
+  class API < Grape::API
+    prefix 'api'
     format :json
     get '/ping' do
       { ping: 'pong' }
