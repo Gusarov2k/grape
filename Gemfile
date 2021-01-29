@@ -8,7 +8,7 @@ gem 'oj'
 gem 'mime-types'
 gem 'rack-cors'
 gem 'puma', '~> 5.2'
-gem 'activerecord', '~> 5.2'
+gem 'activerecord', '~> 6.1', '>= 6.1.1'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 
 group :development do

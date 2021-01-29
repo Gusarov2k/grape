@@ -41,9 +41,9 @@ namespace :db do
 
   desc "Migrate the database"
   task :migrate do
-    # binding.pry
+    #
     ActiveRecord::Base.establish_connection(db_config[ENV['RACK_ENV']])
-    ActiveRecord::Migrator.migrate("db/migrate")
+    ActiveRecord::MigrationContext.new("db/migrate/", ActiveRecord::SchemaMigration)
     Rake::Task["db:schema"].invoke
     puts "Database migrated."
   end
@@ -60,7 +60,7 @@ namespace :db do
 
   desc 'Create a db/schema.rb file that is portable against any DB supported by AR'
   task :schema do
-    ActiveRecord::Base.establish_connection(db_config)
+    ActiveRecord::Base.establish_connection(db_config[ENV['RACK_ENV']])
     require 'active_record/schema_dumper'
     filename = "db/schema.rb"
     File.open(filename, "w:utf-8") do |file|
